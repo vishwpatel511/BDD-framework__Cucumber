@@ -6,9 +6,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import cucumber.api.DataTable;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+
+import java.util.List;
+
 import org.junit.Assert;
 
 public class LoginStepDefinition {
@@ -44,6 +48,8 @@ public class LoginStepDefinition {
 	
 	}
 	
+	// This is the data-driven testing using Example keyword -- Preffered way
+	/*
 	@Then("^User enters \"(.*)\" and \"(.*)\"$")
 	public void user_enters_username_and_password(String userName, String password) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
@@ -56,7 +62,25 @@ public class LoginStepDefinition {
 		Thread.sleep(1000);
 		
 	}
-
+*/
+	
+	// This is the data driven testing using data-table concept.
+	@Then("^User enters userName and password")
+	public void user_enters_username_and_password(DataTable table) throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+		// For knowledge, table.raw() returns List of List of String
+		List<List<String>> data = table.raw();
+		WebElement userNameInputBox = driver.findElement(By.id("loginusername"));
+		WebElement passwordInputBox = driver.findElement(By.id("loginpassword"));
+		userNameInputBox.sendKeys(table.raw().get(0).get(0));
+		Thread.sleep(1500);
+		passwordInputBox.sendKeys(table.raw().get(0).get(1));
+		Thread.sleep(1000);
+		
+	}
+	
+	
+	
 	@Then("^User clicks on Login Button$")
 	public void user_clicks_on_Login_Button() throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
