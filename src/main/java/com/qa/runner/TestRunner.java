@@ -24,6 +24,23 @@ import cucumber.api.junit.Cucumber;
  * Strict: It will throw the pending exception if any step is undefined/pending
  * */
 
+/*
+ * ----------------------- DataDriven Testing using cucumber ways: ---------------
+ * 
+ * 1.Simple Data-driven -- Without Example keyword
+ * 		
+ * 	Step 1: In the feature file replace the values to the actual values you want to pass. 
+ * 			In our case, we replaced the username to "Test123@yahoo.com" and password to "Test@123".
+ * 	Step 2: In the step-def file replace do pretty much same thing and in the annotation change it with \"(,*)\"
+ * 			in our case in step-def username and password is changed to  \"(,*)\". 
+ *  Step 3: Pass the parameter just like any other data-provider. 		
+ * 
+ * 2. With examples + Scenario outline
+ * 
+ * 3. Using Tables
+ * 
+ * 
+ * */
 
 public class TestRunner {
 

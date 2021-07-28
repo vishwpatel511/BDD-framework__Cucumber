@@ -44,15 +44,15 @@ public class LoginStepDefinition {
 	
 	}
 	
-	@Then("^User enters username and password$")
-	public void user_enters_username_and_password() throws Throwable {
+	@Then("^User enters \"(,*)\" and \"(,*)\"$")
+	public void user_enters_username_and_password(String userName, String password) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
 	
 		WebElement userNameInputBox = driver.findElement(By.id("loginusername"));
 		WebElement passwordInputBox = driver.findElement(By.id("loginpassword"));
-		userNameInputBox.sendKeys("test123@yahoo.com");
+		userNameInputBox.sendKeys(userName);
 		Thread.sleep(1500);
-		passwordInputBox.sendKeys("Test@123");
+		passwordInputBox.sendKeys(password);
 		Thread.sleep(1000);
 		
 	}
