@@ -5,7 +5,7 @@ import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features = "src/main/java/com/qa/features/Login.feature", glue= {"com.qa.stepdefinition"}, dryRun = true, monochrome = true)
+@CucumberOptions(features = "src/main/java/com/qa/features/Login.feature", glue= {"com.qa.stepdefinition"}, dryRun = false, monochrome = true)
 
 /*
  * -----------------------------------Cucumber options----------------------------------

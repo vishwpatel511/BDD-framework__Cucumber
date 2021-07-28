@@ -34,8 +34,8 @@ public class LoginStepDefinition {
 		
 	}
 
-	@Then("^User clicks on Login Button$")
-	public void user_clicks_on_Login_Button() throws Throwable {
+	@Then("^User clicks on Login link$")
+	public void user_clicks_on_Login_link() throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
 		
 		WebElement loginBtn = driver.findElement(By.id("login2"));
@@ -44,7 +44,7 @@ public class LoginStepDefinition {
 	
 	}
 	
-	@Then("^User enters \"(,*)\" and \"(,*)\"$")
+	@Then("^User enters \"(.*)\" and \"(.*)\"$")
 	public void user_enters_username_and_password(String userName, String password) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
 	
@@ -57,8 +57,8 @@ public class LoginStepDefinition {
 		
 	}
 
-	@Then("^User clickes on Login Button$")
-	public void user_clickes_on_Login_Button() throws Throwable {
+	@Then("^User clicks on Login Button$")
+	public void user_clicks_on_Login_Button() throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
 	  
 		WebElement loginBtn = driver.findElement(By.xpath("//button[text()='Log in']"));
