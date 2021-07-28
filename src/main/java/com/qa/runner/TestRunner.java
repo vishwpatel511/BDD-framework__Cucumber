@@ -4,9 +4,16 @@ import org.junit.runner.RunWith;
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
 
-@RunWith(Cucumber.class)
-@CucumberOptions(features = "src/main/java/com/qa/features/Login.feature", glue= {"com.qa.stepdefinition"}, dryRun = false, monochrome = true)
 
+@RunWith(Cucumber.class)
+
+// @CucumberOptions(features = "src/main/java/com/qa/features/Login.feature", glue= {"com.qa.stepdefinition"}, dryRun = false, monochrome = true)
+@CucumberOptions(features = "src/main/java/com/qa/features/tagging.feature", glue= {"com.qa.stepdefinition"}, dryRun = false, monochrome = true,
+tags = {"~@SmokeTest" , "~@RegressionTest", "~@End2End"})
+
+    //ORed : tags = {"@SmokeTest , @RegressionTest"} -- execute all tests tagged as @SmokeTest OR @RegressionTest
+	//ANDed : tags = tags = {"@SmokeTest" , "@RegressionTest"} -- execute all tests tagged as @SmokeTest AND @RegressionTest
+	// ~ sign works as a ignore. So ~@SmokeTest will ignore all test-cases which has @SmokeTest
 /*
  * -----------------------------------Cucumber options----------------------------------
  * Dryrun: It verifies if all the steps mentioned in the feature file(In our login.feature file there are 5 steps)
